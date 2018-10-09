@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+{% block content %}
+<div class="container" style="margin-top:2%;">
+<div class="card text-center">
+     <div class="card-header">
+         <ul class="nav nav-pills card-header-pills">
+             <li class="nav-item">
+                 <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
+             </li>
+         </ul>
+     </div>
+     <div class="card-body">
+         <small style="float:left;">Repository Name : </small><h5 style="float:left; margin-left:10px; display:inline-flex;" class="card-title">{{ repo.repo_name }}</h5>
+     </div>
+     
+         <p class="card-text">Description : {{ repo.description }}</p>
+         {% if repo.licensed_by %}
+            <p> Licensed By : {{ repo.licensed_by }}</p>
+         {% endif  %}
+            <p>Updated : {{ repo.updated  }}</p>
+</div>
+</div>
+{% endblock %}

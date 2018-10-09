@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+
+{% block content %}
+<div class="row">
+    <div style="margin: 0 auto; margin-top:40px;">
+<form method="POST" action="{{ url_for('index') }}" class="form-inline mt-2 mt-md-0">
+    <input class="form-control mr-sm-2" name="search_bar" type="text" placeholder="Search" aria-label="Search">
+    <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+</form>
+    </div>
+</div>
+
+<div class="container">
+{% for item in result %}
+<div class="card" style="margin-top:2%;">
+      <h5 class="card-header">
+          {{ item.repo_name }}
+      </h5>
+      <div class="card-body">
+          <h5 class="card-title">{{ item.description }}</h5>
+          <div>
+          <p class="card-text "style ="display: inline-flex;">Updated : {{ item.updated }}</p>
+          <a href="{{url_for('detail', item=item)}}" class="btn btn-primary btn-sm" style="float:right;">Profile</a>
+          </div>
+     </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock  %}
